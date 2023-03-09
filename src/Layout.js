@@ -9,19 +9,6 @@ function Layout() {
     const [notes, setNotes] = useState([]);
     const [menuNotes, setMenuNotes] = useState([]);
 
-    useEffect(() => {
-        const storedNotes = localStorage.getItem("notes");
-        if (storedNotes) {
-          setNotes(JSON.parse(storedNotes));
-        }
-    }, []);
-    
-      
-    useEffect(() => {
-        localStorage.setItem("notes", JSON.stringify(notes));
-    }, [notes]);
-    
-
     const addNote = () => {
     const noteId = notes.length + 1; 
     setNotes([...notes, noteId]);
